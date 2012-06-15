@@ -7,6 +7,7 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
     <flow name="Echo" doc:name="Echo" doc:description="This is a simple echo example. We use an HTTP endpoint and an echo component.  To invoke the Echo flow hit the following URL: http://localhost:8787/echo">
         <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8787" path="echo" encoding="UTF-8" mimeType="text/plain" contentType="text/plain" doc:name="HTTP" doc:description="The HTTPS endpoint allows Mule to send and recieve requests securely using HTTP over SSL protocol."/>
         <logger message="The incoming message will be echoed." level="INFO" doc:name="Logger"/>
+        <set-payload value="#[groovy:payload.toUpperCase()]" doc:name="Set Payload"/>
         <echo-component doc:name="Echo" doc:description="Echoes message payload."/>
     </flow>
 </mule>

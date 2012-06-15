@@ -10,8 +10,8 @@
             <property name="tracking:transaction-id"/>
         </properties>
         <description>This is a simple echo example. We use an HTTP endpoint and an echo component.  To invoke the Echo flow hit the following URL: http://localhost:8787/echo</description>
-        <lane hadOnlyOneElement="false" entity-id="c7d6c3af-c0be-4e71-9ab7-858904cf4b9d">
-            <endpoint message-exchange-pattern="OneWay" direction="Inbound" type="http://www.mulesoft.org/schema/mule/http/endpoint" name="HTTP" entity-id="48a32d2b-b458-4b92-af6f-6ff15a66aaad">
+        <lane hadOnlyOneElement="false" entity-id="860a952a-3c16-4900-99e8-bac57369c299">
+            <endpoint message-exchange-pattern="OneWay" direction="Inbound" type="http://www.mulesoft.org/schema/mule/http/endpoint" name="HTTP" entity-id="bd0cd955-6776-4f04-aef1-eeda47e4d9cb">
                 <properties>
                     <property value="one-way" name="exchange-pattern"/>
                     <property value="request-response" name="exchange-pattern"/>
@@ -40,15 +40,20 @@
                 </properties>
                 <description>The HTTPS endpoint allows Mule to send and recieve requests securely using HTTP over SSL protocol.</description>
             </endpoint>
-            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="94a00cc0-c284-4d48-97a7-bf0727599b01">
+            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="ac310241-f43a-4f82-922f-3cde2b9ac40d">
                 <properties>
                     <property value="The incoming message will be echoed." name="message"/>
-                    <property value="" name="category"/>
                     <property value="INFO" name="level"/>
+                    <property name="category"/>
+                </properties>
+            </pattern>
+            <pattern type="http://www.mulesoft.org/schema/mule/core/set-payload" name="Set Payload" entity-id="4ec9c17b-6d44-463b-b50c-a0de74741046">
+                <properties>
+                    <property value="#[groovy:payload.toUpperCase()]" name="value"/>
                 </properties>
                 <description></description>
             </pattern>
-            <pattern type="org.mule.tooling.ui.modules.core.pattern.echo" name="Echo" entity-id="850ec32e-1aac-4f2c-b70e-7639b99b41ac">
+            <pattern type="org.mule.tooling.ui.modules.core.pattern.echo" name="Echo" entity-id="cceee8a3-52a1-41ef-b27e-475f59f4b8ef">
                 <description>Echoes message payload.</description>
             </pattern>
         </lane>
