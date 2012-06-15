@@ -10,8 +10,8 @@
             <property name="tracking:transaction-id"/>
         </properties>
         <description>This is a simple echo example. We use an HTTP endpoint and an echo component.  To invoke the Echo flow hit the following URL: http://localhost:8787/echo</description>
-        <lane hadOnlyOneElement="false" entity-id="3904569d-c857-4a4e-b6cb-da0d7b8df2c7">
-            <endpoint message-exchange-pattern="OneWay" direction="Inbound" type="http://www.mulesoft.org/schema/mule/http/endpoint" name="HTTP" entity-id="72c093b6-e251-4dfe-baeb-53fd93a5529e">
+        <lane hadOnlyOneElement="false" entity-id="1ae86d77-4af7-402c-a919-f4b1a0e9883c">
+            <endpoint message-exchange-pattern="OneWay" direction="Inbound" type="http://www.mulesoft.org/schema/mule/http/endpoint" name="HTTP" entity-id="cc58ed8e-8a4d-4a45-8b2a-3c8d987ea3dd">
                 <properties>
                     <property value="one-way" name="exchange-pattern"/>
                     <property value="request-response" name="exchange-pattern"/>
@@ -40,7 +40,8 @@
                 </properties>
                 <description>The HTTPS endpoint allows Mule to send and recieve requests securely using HTTP over SSL protocol.</description>
             </endpoint>
-            <pattern type="org.mule.tooling.ui.modules.core.pattern.echo" name="Echo" entity-id="9f4418f7-a9c6-4ba1-b4b1-47c12776e329">
+            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="b23c6f97-3756-4313-8be1-dbfdcb8940cf"/>
+            <pattern type="org.mule.tooling.ui.modules.core.pattern.echo" name="Echo" entity-id="4fe37e5a-d68b-4360-b1bb-f8aeca78bdc2">
                 <description>Echoes message payload.</description>
             </pattern>
         </lane>
