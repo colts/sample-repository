@@ -10,8 +10,8 @@
             <property name="tracking:transaction-id"/>
         </properties>
         <description>This is a simple echo example. We use an HTTP endpoint and an echo component.  To invoke the Echo flow hit the following URL: http://localhost:8787/echo</description>
-        <lane hadOnlyOneElement="false" entity-id="1ae86d77-4af7-402c-a919-f4b1a0e9883c">
-            <endpoint message-exchange-pattern="OneWay" direction="Inbound" type="http://www.mulesoft.org/schema/mule/http/endpoint" name="HTTP" entity-id="cc58ed8e-8a4d-4a45-8b2a-3c8d987ea3dd">
+        <lane hadOnlyOneElement="false" entity-id="c7d6c3af-c0be-4e71-9ab7-858904cf4b9d">
+            <endpoint message-exchange-pattern="OneWay" direction="Inbound" type="http://www.mulesoft.org/schema/mule/http/endpoint" name="HTTP" entity-id="48a32d2b-b458-4b92-af6f-6ff15a66aaad">
                 <properties>
                     <property value="one-way" name="exchange-pattern"/>
                     <property value="request-response" name="exchange-pattern"/>
@@ -40,8 +40,15 @@
                 </properties>
                 <description>The HTTPS endpoint allows Mule to send and recieve requests securely using HTTP over SSL protocol.</description>
             </endpoint>
-            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="b23c6f97-3756-4313-8be1-dbfdcb8940cf"/>
-            <pattern type="org.mule.tooling.ui.modules.core.pattern.echo" name="Echo" entity-id="4fe37e5a-d68b-4360-b1bb-f8aeca78bdc2">
+            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="94a00cc0-c284-4d48-97a7-bf0727599b01">
+                <properties>
+                    <property value="The incoming message will be echoed." name="message"/>
+                    <property value="" name="category"/>
+                    <property value="INFO" name="level"/>
+                </properties>
+                <description></description>
+            </pattern>
+            <pattern type="org.mule.tooling.ui.modules.core.pattern.echo" name="Echo" entity-id="850ec32e-1aac-4f2c-b70e-7639b99b41ac">
                 <description>Echoes message payload.</description>
             </pattern>
         </lane>
